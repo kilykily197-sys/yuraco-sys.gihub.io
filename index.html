@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- FONDO -->
+    <div class="card-bg"></div>
+
+    <!-- CONFETI -->
+    <div id="confetti" class="confetti"></div>
+
+    <!-- CONTENIDO -->
+    <div class="card-content">
+
+        <!-- PASTEL -->
+       <div class="cake">
+            <!-- sombra/base -->
+            <div class="cake-base"></div>
+
+            <!-- piso de abajo -->
+            <div class="tier tier-bottom">
+                <div class="tier-body"></div>
+                <div class="icing">
+                    <span class="drop d1"></span>
+                    <span class="drop d2"></span>
+                    <span class="drop d3"></span>
+                </div>
+            </div>
+
+            <!-- piso de arriba -->
+            <div class="tier tier-top">
+                <div class="tier-body"></div>
+                <div class="icing">
+                    <span class="drop d1"></span>
+                    <span class="drop d2"></span>
+                </div>
+            </div>
+
+            <!-- vela -->
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="candle-stick"></div>
+                <div class="candle-body">
+                    <span class="candle-num">20</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TEXTO -->
+        <h1 class="title"><span class="title-text">Happy Birthday</span></h1>
+
+        <!-- BOTÓN -->
+        <div class="btn-row">
+            <a href="yuraco.html" class="btn-primary">click</a>  
+            <button id="musicBtn" class="btn-music">🎵</button>
+        </div>
+    </div>
+</div>
+
+<!-- JS DEL CONFETI -->
+<script>
+(function makeConfetti() {
+    const confettiContainer = document.getElementById('confetti');
+    const colors = ['#ffe4f3', '#ffe7b8', '#ffd1dc', '#e0f2fe', '#c7d2fe'];
+    const shapes = ['square', 'circle', 'rect'];
+
+    for (let i = 0; i < 80; i++) {
+        const piece = document.createElement('span');
+        const size = Math.random() * 8 + 4;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = 4 + Math.random() * 4;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+
+        piece.style.left = left + '%';
+        piece.style.width = size + 'px';
+
+        if (shape === 'circle') {
+            piece.style.height = size + 'px';
+            piece.style.borderRadius = '50%';
+        } else if (shape === 'square') {
+            piece.style.height = size + 'px';
+        } else {
+            piece.style.height = size * 1.6 + 'px';
+        }
+
+        piece.style.background = color;
+        piece.style.animationDuration = duration + 's';
+        piece.style.animationDelay = delay + 's';
+
+        confettiContainer.appendChild(piece);
+    }
+})();
+</script>
+
+<audio id="bgMusic" src="Feliz Cumpleaños - Silvestre Dangond.mp3" loop></audio>
+
+<script>
+window.addEventListener("click", () => {
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.6;
+    music.play();
+}, { once: true });
+</script>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btnMusic = document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+// Arranca solo con el primer click
+window.addEventListener("click", () => {
+    if (!isPlaying) {
+        music.volume = 0.6;
+        music.play();
+        isPlaying = true;
+        btnMusic.textContent = "⏸️";
+    }
+}, { once: true });
+
+btnMusic.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        btnMusic.textContent = "⏸️";
+    } else {
+        music.pause();
+        btnMusic.textContent = "🎵";
+    }
+});
+</script>
+
+</body>
+</html>
