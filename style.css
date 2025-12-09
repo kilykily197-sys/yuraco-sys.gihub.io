@@ -13,14 +13,16 @@ body {
     justify-content: center;
     font-family: "Poppins", sans-serif;
     background: radial-gradient(circle at top, #dfe9f3 0, #a7b5cc 45%, #1b2230 100%);
+    padding: 16px;
 }
 
 /* CARD */
 .card {
     position: relative;
-    width: 480px;
-    max-width: 95vw;
-    height: 420px;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    min-height: 420px;
     border-radius: 28px;
     overflow: hidden;
     box-shadow: 0 18px 40px rgba(0,0,0,0.4);
@@ -445,3 +447,35 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.32);
 }
+
+
+
+
+
+@media (max-width: 480px) {
+
+    .card {
+        min-height: 380px;
+        border-radius: 22px;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .cake {
+        transform: scale(0.9);
+    }
+
+    .btn-row {
+        gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 22px;
+        font-size: 0.9rem;
+    }
+}
+
+
