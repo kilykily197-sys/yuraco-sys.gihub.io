@@ -289,18 +289,6 @@ body {
 }
 
 
-.drop {
-    position:absolute;
-    bottom:-10px;
-    width:18px;
-    height:18px;
-    background:white;
-    border-radius:0 0 14px 14px;
-}
-
-.d1 { left:20px; }
-.d2 { left:60px; }
-.d3 { right:20px; }
 
 
 /* TEXTO */
@@ -477,5 +465,6 @@ body {
         font-size: 0.9rem;
     }
 }
+
 
 
